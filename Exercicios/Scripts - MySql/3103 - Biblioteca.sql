@@ -135,27 +135,72 @@ DESCRIBE snitb003_CATEGORIA;
 DESCRIBE snitb004_LIVRO_AUTOR;
 DESCRIBE snitb005_EDITORA;
 DESCRIBE snitb006_EDITORA_CONTATO;
-
-DROP TABLE SNITB001_LIVRO;
--- =======================================
-
+-- =====================================================================================================================
+-- Comando para deletar o banco de dados
+DROP DATABASE BIBLIOTECA;
+-- =====================================================================================================================
+-- Comando para deletar a tabela
+DROP TABLE IF EXISTS SNITB001_LIVRO;
+DROP TABLE IF EXISTS SNITB002_AUTOR;
+DROP TABLE IF EXISTS SNITB003_CATEGORIA;
+DROP TABLE IF EXISTS SNITB004_LIVRO_AUTOR;
+DROP TABLE IF EXISTS SNITB005_EDITORA;
+DROP TABLE IF EXISTS SNITB006_EDITORA_CONTATO;
+-- =====================================================================================================================
+-- Comando para deletar a chave estrangeira
 ALTER TABLE SNITB001_LIVRO
-	ADD CONSTRAINT FOREIGN KEY (FK01_SNITB002_SNITB001) REFERENCES SNITB002_AUTOR (ID_AUTOR);
-
+	DROP FOREIGN KEY FK01_SNITB003_SNITB001;
 ALTER TABLE SNITB001_LIVRO
-	ADD CONSTRAINT FOREIGN KEY (FK02_SNITB003_SNITB001) REFERENCES SNITB003_CATEGORIA(ID_CATEGORIA);
-
-ALTER TABLE SNITB002_AUTOR
-	MODIFY COLUMN NO_AUTOR VARCHAR(200) NOT NULL;
-
-ALTER TABLE SNITB002_AUTOR
-	DROP DT_NASCIMENTO;
-
+	DROP FOREIGN KEY FK02_SNITB001;
+ALTER TABLE SNITB004_LIVRO_AUTOR
+	DROP FOREIGN KEY FK01_SNITB001_SNITB004;
+ALTER TABLE SNITB004_LIVRO_AUTOR
+	DROP FOREIGN KEY FK02_SNITB002_AUTOR;
+ALTER TABLE SNITB006_EDITORA_CONTATO
+	DROP FOREIGN KEY FK01_SNITB005;
 ALTER TABLE SNITB001_LIVRO
-	ADD CONSTRAINT PK_LIVRO PRIMARY KEY (ID_LIVRO);
-
-ALTER TABLE SNITB001_LIVRO DROP CONSTRAINT PK_AUTOR;
-    
+	DROP FOREIGN KEY FK02_SNITB001;
+-- =====================================================================================================================
+-- Comando para deletar a chave primária
+ALTER TABLE SNITB001_LIVRO
+	DROP PRIMARY KEY;
 ALTER TABLE SNITB002_AUTOR
-	ADD COLUMN DT_NASCIMENTO DATE NOT NULL;
+	DROP PRIMARY KEY;
+ALTER TABLE SNITB003_CATEGORIA
+	DROP PRIMARY KEY;
+ALTER TABLE SNITB004_LIVRO_AUTOR
+	DROP PRIMARY KEY;
+ALTER TABLE SNITB005_EDITORA
+	DROP PRIMARY KEY;
+ALTER TABLE SNITB006_EDITORA_CONTATO
+	DROP PRIMARY KEY;
+-- =====================================================================================================================
+-- Comando para deletar a chave única
+ALTER TABLE SNITB001_LIVRO
+	DROP INDEX UK01_SNITB001;
+ALTER TABLE SNITB002_AUTOR
+	DROP INDEX UK01_SNITB002;
+ALTER TABLE SNITB003_CATEGORIA
+	DROP INDEX UK01_SNITB003;
+ALTER TABLE SNITB005_EDITORA
+	DROP INDEX UK01_SNITB005;
+-- =====================================================================================================================
+-- Comando para deletar a constraint
+ALTER TABLE SNITB001_LIVRO
+	DROP CONSTRAINT PK_SNITB001;
+ALTER TABLE SNITB002_AUTOR
+	DROP CONSTRAINT PK_SNITB002;
+ALTER TABLE SNITB003_CATEGORIA
+	DROP CONSTRAINT PK_SNITB003;
+ALTER TABLE SNITB004_LIVRO_AUTOR
+	DROP CONSTRAINT PK_SNITB004;
+ALTER TABLE SNITB005_EDITORA
+	DROP CONSTRAINT PK_SNITB005;
+ALTER TABLE SNITB006_EDITORA_CONTATO
+	DROP CONSTRAINT PK_SNITB006;
+-- =====================================================================================================================
+-- Comando para deletar a constraint de check
+ALTER TABLE SNITB001_LIVRO
+	DROP CONSTRAINT CC01_SNITB001;
+-- =====================================================================================================================
 
