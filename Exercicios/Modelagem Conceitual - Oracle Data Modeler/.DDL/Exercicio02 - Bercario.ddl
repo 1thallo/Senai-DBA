@@ -1,0 +1,298 @@
+-- Gerado por Oracle SQL Developer Data Modeler 24.3.1.351.0831
+--   em:        2025-03-25 21:34:51 BRT
+--   site:      Oracle Database 21c
+--   tipo:      Oracle Database 21c
+
+
+
+-- predefined type, no DDL - SDO_GEOMETRY
+
+-- predefined type, no DDL - XMLTYPE
+
+CREATE TABLE SNITB001_MAE 
+    ( 
+     ID_MAE        NUMBER (3)  NOT NULL , 
+     NO_MAE        VARCHAR2 (100 CHAR)  NOT NULL , 
+     DT_NASCIMENTO DATE  NOT NULL , 
+     QT_FILHOS     NUMBER  NOT NULL 
+    ) 
+;
+
+COMMENT ON COLUMN SNITB001_MAE.ID_MAE IS 'Identificador único serial da mãe' 
+;
+
+COMMENT ON COLUMN SNITB001_MAE.NO_MAE IS 'Nome da mãe' 
+;
+
+COMMENT ON COLUMN SNITB001_MAE.DT_NASCIMENTO IS 'Data de nascimento da mãe' 
+;
+
+COMMENT ON COLUMN SNITB001_MAE.QT_FILHOS IS 'Quantidade de filhos' 
+;
+
+ALTER TABLE SNITB001_MAE 
+    ADD CONSTRAINT PK_SNITB001 PRIMARY KEY ( ID_MAE ) ;
+
+ALTER TABLE SNITB001_MAE 
+    ADD CONSTRAINT UK01_SNITB001 UNIQUE ( NO_MAE ) ;
+
+CREATE TABLE SNITB002_BEBE 
+    ( 
+     ID_BEBE        NUMBER (4)  NOT NULL , 
+     NO_BEBE        VARCHAR2 (150 CHAR)  NOT NULL , 
+     DT_NASCIMENTO  DATE  NOT NULL , 
+     QT_PESO_BEBE   NUMBER (1,2)  NOT NULL , 
+     VL_ALTURA_BEBE NUMBER (2,2)  NOT NULL , 
+     ID_MAE         NUMBER (3)  NOT NULL , 
+     ID_MEDICO      NUMBER  NOT NULL 
+    ) 
+;
+
+COMMENT ON COLUMN SNITB002_BEBE.ID_BEBE IS 'Identificador único serial do bebe' 
+;
+
+COMMENT ON COLUMN SNITB002_BEBE.NO_BEBE IS 'Nome do bebe' 
+;
+
+COMMENT ON COLUMN SNITB002_BEBE.DT_NASCIMENTO IS 'Data de nascimento do bebe' 
+;
+
+COMMENT ON COLUMN SNITB002_BEBE.QT_PESO_BEBE IS 'Peso do bebe' 
+;
+
+COMMENT ON COLUMN SNITB002_BEBE.VL_ALTURA_BEBE IS 'Altura do bebe' 
+;
+
+COMMENT ON COLUMN SNITB002_BEBE.ID_MAE IS 'Identificador único da mãe do bebe' 
+;
+
+COMMENT ON COLUMN SNITB002_BEBE.ID_MEDICO IS 'Identificador único do médico que realizou o parto do bebe' 
+;
+
+ALTER TABLE SNITB002_BEBE 
+    ADD CONSTRAINT PK_SNITB002 PRIMARY KEY ( ID_BEBE ) ;
+
+CREATE TABLE SNITB003_MEDICO 
+    ( 
+     ID_MEDICO        NUMBER  NOT NULL , 
+     NR_CRM           NUMBER  NOT NULL , 
+     NO_MEDICO        VARCHAR2 (150 CHAR)  NOT NULL , 
+     ID_ESPECIALIDADE NUMBER (2)  NOT NULL 
+    ) 
+;
+
+COMMENT ON COLUMN SNITB003_MEDICO.ID_MEDICO IS 'Identificador único serial do médico' 
+;
+
+COMMENT ON COLUMN SNITB003_MEDICO.NR_CRM IS 'Número do CRM como Chave única' 
+;
+
+COMMENT ON COLUMN SNITB003_MEDICO.NO_MEDICO IS 'Nome do médico' 
+;
+
+COMMENT ON COLUMN SNITB003_MEDICO.ID_ESPECIALIDADE IS 'Identificador da especialidade do médico' 
+;
+
+ALTER TABLE SNITB003_MEDICO 
+    ADD CONSTRAINT PK_SNITB003 PRIMARY KEY ( ID_MEDICO ) ;
+
+ALTER TABLE SNITB003_MEDICO 
+    ADD CONSTRAINT UK01_SNITB003 UNIQUE ( NR_CRM ) ;
+
+CREATE TABLE SNITB004_ENDERECO_MAE 
+    ( 
+     ID_ENDERECO_MAE NUMBER  NOT NULL , 
+     ID_MAE          NUMBER (3)  NOT NULL , 
+     ED_MAE          VARCHAR2 (1000 CHAR)  NOT NULL 
+    ) 
+;
+
+COMMENT ON COLUMN SNITB004_ENDERECO_MAE.ID_ENDERECO_MAE IS 'Identificador único serial do endereço da mãe' 
+;
+
+COMMENT ON COLUMN SNITB004_ENDERECO_MAE.ID_MAE IS 'Identificador único serial da mãe' 
+;
+
+COMMENT ON COLUMN SNITB004_ENDERECO_MAE.ED_MAE IS 'Endereço completo da mãe' 
+;
+
+ALTER TABLE SNITB004_ENDERECO_MAE 
+    ADD CONSTRAINT PK_SNITB004 PRIMARY KEY ( ID_ENDERECO_MAE ) ;
+
+CREATE TABLE SNITB005_TELEFONE_MAE 
+    ( 
+     ID_TELEFONE_MAE NUMBER  NOT NULL , 
+     ID_MAE          NUMBER (3)  NOT NULL , 
+     NR_TELEFONE_MAE NUMBER  NOT NULL 
+    ) 
+;
+
+COMMENT ON COLUMN SNITB005_TELEFONE_MAE.ID_TELEFONE_MAE IS 'Identificador único serial do telefone da mãe' 
+;
+
+COMMENT ON COLUMN SNITB005_TELEFONE_MAE.ID_MAE IS 'Identificador único da mãe' 
+;
+
+COMMENT ON COLUMN SNITB005_TELEFONE_MAE.NR_TELEFONE_MAE IS 'Numero de telefone da mãe' 
+;
+
+ALTER TABLE SNITB005_TELEFONE_MAE 
+    ADD CONSTRAINT PK_SNITB005 PRIMARY KEY ( ID_TELEFONE_MAE ) ;
+
+CREATE TABLE SNITB006_ESPECIALIDADE_MEDICO 
+    ( 
+     ID_ESPECIALIDADE NUMBER (2)  NOT NULL , 
+     NO_ESPECIALIDADE VARCHAR2 (150 CHAR)  NOT NULL , 
+     DS_ESPECIALIDADE VARCHAR2 (500 CHAR) 
+    ) 
+;
+
+COMMENT ON COLUMN SNITB006_ESPECIALIDADE_MEDICO.ID_ESPECIALIDADE IS 'Identificador único serial do médico' 
+;
+
+COMMENT ON COLUMN SNITB006_ESPECIALIDADE_MEDICO.NO_ESPECIALIDADE IS 'Nome da especialidade do médico' 
+;
+
+COMMENT ON COLUMN SNITB006_ESPECIALIDADE_MEDICO.DS_ESPECIALIDADE IS 'Descrição da Especialidade' 
+;
+
+ALTER TABLE SNITB006_ESPECIALIDADE_MEDICO 
+    ADD CONSTRAINT PK_SNITB006 PRIMARY KEY ( ID_ESPECIALIDADE ) ;
+
+ALTER TABLE SNITB006_ESPECIALIDADE_MEDICO 
+    ADD CONSTRAINT UK01_SNITB006 UNIQUE ( NO_ESPECIALIDADE ) ;
+
+CREATE TABLE SNITB007_TELEFONE_MEDICO 
+    ( 
+     ID_TELEFONE_MEDICO NUMBER  NOT NULL , 
+     ID_MEDICO          NUMBER  NOT NULL , 
+     NR_TELEFONE_MEDICO NUMBER  NOT NULL , 
+     TP_TELEFONE        VARCHAR2 (50 CHAR)  NOT NULL 
+    ) 
+;
+
+COMMENT ON COLUMN SNITB007_TELEFONE_MEDICO.ID_TELEFONE_MEDICO IS 'Identificador único serial do telefone do médico' 
+;
+
+COMMENT ON COLUMN SNITB007_TELEFONE_MEDICO.ID_MEDICO IS 'Identificador do médico' 
+;
+
+COMMENT ON COLUMN SNITB007_TELEFONE_MEDICO.NR_TELEFONE_MEDICO IS ' Número de telefone do medico' 
+;
+
+COMMENT ON COLUMN SNITB007_TELEFONE_MEDICO.TP_TELEFONE IS 'Tipo do telefone: "Comercial", "Pessoal" etc' 
+;
+
+ALTER TABLE SNITB007_TELEFONE_MEDICO 
+    ADD CONSTRAINT PK_SNITB007 PRIMARY KEY ( ID_TELEFONE_MEDICO ) ;
+
+ALTER TABLE SNITB002_BEBE 
+    ADD CONSTRAINT FK01_SNITB001_SNITB002 FOREIGN KEY 
+    ( 
+     ID_MAE
+    ) 
+    REFERENCES SNITB001_MAE 
+    ( 
+     ID_MAE
+    ) 
+;
+
+ALTER TABLE SNITB004_ENDERECO_MAE 
+    ADD CONSTRAINT FK01_SNITB001_SNITB004 FOREIGN KEY 
+    ( 
+     ID_MAE
+    ) 
+    REFERENCES SNITB001_MAE 
+    ( 
+     ID_MAE
+    ) 
+;
+
+ALTER TABLE SNITB005_TELEFONE_MAE 
+    ADD CONSTRAINT FK01_SNITB001_SNITB005 FOREIGN KEY 
+    ( 
+     ID_MAE
+    ) 
+    REFERENCES SNITB001_MAE 
+    ( 
+     ID_MAE
+    ) 
+;
+
+ALTER TABLE SNITB003_MEDICO 
+    ADD CONSTRAINT FK01_SNITB006_SNITB003 FOREIGN KEY 
+    ( 
+     ID_ESPECIALIDADE
+    ) 
+    REFERENCES SNITB006_ESPECIALIDADE_MEDICO 
+    ( 
+     ID_ESPECIALIDADE
+    ) 
+;
+
+ALTER TABLE SNITB002_BEBE 
+    ADD CONSTRAINT FK02_SNITB003_SNITB002 FOREIGN KEY 
+    ( 
+     ID_MEDICO
+    ) 
+    REFERENCES SNITB003_MEDICO 
+    ( 
+     ID_MEDICO
+    ) 
+;
+
+ALTER TABLE SNITB007_TELEFONE_MEDICO 
+    ADD CONSTRAINT FK02_SNITB003_SNITB007 FOREIGN KEY 
+    ( 
+     ID_MEDICO
+    ) 
+    REFERENCES SNITB003_MEDICO 
+    ( 
+     ID_MEDICO
+    ) 
+;
+
+
+
+-- Relatório do Resumo do Oracle SQL Developer Data Modeler: 
+-- 
+-- CREATE TABLE                             7
+-- CREATE INDEX                             0
+-- ALTER TABLE                             16
+-- CREATE VIEW                              0
+-- ALTER VIEW                               0
+-- CREATE PACKAGE                           0
+-- CREATE PACKAGE BODY                      0
+-- CREATE PROCEDURE                         0
+-- CREATE FUNCTION                          0
+-- CREATE TRIGGER                           0
+-- ALTER TRIGGER                            0
+-- CREATE COLLECTION TYPE                   0
+-- CREATE STRUCTURED TYPE                   0
+-- CREATE STRUCTURED TYPE BODY              0
+-- CREATE CLUSTER                           0
+-- CREATE CONTEXT                           0
+-- CREATE DATABASE                          0
+-- CREATE DIMENSION                         0
+-- CREATE DIRECTORY                         0
+-- CREATE DISK GROUP                        0
+-- CREATE ROLE                              0
+-- CREATE ROLLBACK SEGMENT                  0
+-- CREATE SEQUENCE                          0
+-- CREATE MATERIALIZED VIEW                 0
+-- CREATE MATERIALIZED VIEW LOG             0
+-- CREATE SYNONYM                           0
+-- CREATE TABLESPACE                        0
+-- CREATE USER                              0
+-- 
+-- DROP TABLESPACE                          0
+-- DROP DATABASE                            0
+-- 
+-- REDACTION POLICY                         0
+-- 
+-- ORDS DROP SCHEMA                         0
+-- ORDS ENABLE SCHEMA                       0
+-- ORDS ENABLE OBJECT                       0
+-- 
+-- ERRORS                                   0
+-- WARNINGS                                 0
