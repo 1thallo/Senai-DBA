@@ -1,1 +1,1 @@
-Repositório criado para armazenar conteúdo disposto no curso de Administração de Banco de Dados no SENAI.
+Este repositório foi criado para organizar e armazenar os materiais do curso de Administração de Banco de Dados oferecido pelo SENAI.
