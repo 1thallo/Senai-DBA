@@ -80,6 +80,7 @@ FROM SNITB003_TELEFONE_MEDICO TTM
 INNER JOIN SNITB002_MEDICO TM ON TM.ID_MEDICO = TTM.ID_MEDICO;
 
 DESCRIBE SNITB003_TELEFONE_MEDICO;
+
 -- ================================================================================
 ALTER TABLE snitb001_mae
 AUTO_INCREMENT = 8;
@@ -96,8 +97,6 @@ INSERT INTO SNITB001_MAE (NR_RG, NO_MAE, ED_MAE, NR_TELEFONE_MAE, DT_NASCIMENTO)
     
 SELECT * FROM SNITB001_MAE;
 DESCRIBE SNITB001_MAE;
-
-
 
 -- ===============================================================================================
 
