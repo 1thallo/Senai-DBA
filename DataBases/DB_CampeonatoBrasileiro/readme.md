@@ -1,6 +1,6 @@
 # DB_CampeonatoBrasileiro
 
-Este repositório contém os arquivos e scripts relacionados ao projeto de criação de uma base de dados para armazenar informações sobre o Campeonato Brasileiro. O projeto foi desenvolvido com base nos seguintes requisitos:
+Este diretório contém os arquivos e scripts relacionados ao projeto de criação de uma base de dados para armazenar informações sobre o Campeonato Brasileiro. O projeto foi desenvolvido com base nos seguintes requisitos:
 
 ## Requisitos do Sistema
 

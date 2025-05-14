@@ -4,8 +4,44 @@ use locadora;
 
 set sql_safe_updates = 0;
 
+-- Sakila Sample Database Data
+-- Version 0.8
+
+-- Copyright (c) 2006, MySQL AB
+-- All rights reserved.
+
+-- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+--  * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+--  * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+--  * Neither the name of MySQL AB nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-- #############################################################################
+-- ### VERSAO MODIFICADA POR: TIAGO PASSOS - www.tiagopassos.com             ###
+-- ### REMOVIDAS TRIGGERS, VIEWS E PROCEDURES                                ###
+-- ### NOMES DE CAMPOS E TABELAS TRADUZIDOS                                  ###
+-- ### BASE DE DADOS PARA TESTES E EXERCICIOS                                ###
+-- #############################################################################
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Banco de Dados: `tiago_teste`
+--
 
 -- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `aluguel`
+--
 
 CREATE TABLE IF NOT EXISTS `aluguel` (
   `aluguel_id` int(11) NOT NULL auto_increment,
@@ -24,6 +60,9 @@ CREATE TABLE IF NOT EXISTS `aluguel` (
 
 -- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `ator`
+--
 
 CREATE TABLE IF NOT EXISTS `ator` (
   `ator_id` smallint(5) unsigned NOT NULL auto_increment,
@@ -36,6 +75,9 @@ CREATE TABLE IF NOT EXISTS `ator` (
 
 -- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `categoria`
+--
 
 CREATE TABLE IF NOT EXISTS `categoria` (
   `categoria_id` tinyint(3) unsigned NOT NULL auto_increment,
@@ -45,6 +87,10 @@ CREATE TABLE IF NOT EXISTS `categoria` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 -- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cidade`
+--
 
 CREATE TABLE IF NOT EXISTS `cidade` (
   `cidade_id` smallint(5) unsigned NOT NULL auto_increment,
@@ -57,6 +103,9 @@ CREATE TABLE IF NOT EXISTS `cidade` (
 
 -- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `cliente`
+--
 
 CREATE TABLE IF NOT EXISTS `cliente` (
   `cliente_id` smallint(5) unsigned NOT NULL auto_increment,
@@ -76,6 +125,10 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 
 -- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `endereco`
+--
+
 CREATE TABLE IF NOT EXISTS `endereco` (
   `endereco_id` smallint(5) unsigned NOT NULL auto_increment,
   `endereco` varchar(50) NOT NULL,
@@ -90,6 +143,10 @@ CREATE TABLE IF NOT EXISTS `endereco` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=606 ;
 
 -- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `filme`
+--
 
 CREATE TABLE IF NOT EXISTS `filme` (
   `filme_id` smallint(5) unsigned NOT NULL auto_increment,
@@ -113,6 +170,10 @@ CREATE TABLE IF NOT EXISTS `filme` (
 
 -- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `filme_ator`
+--
+
 CREATE TABLE IF NOT EXISTS `filme_ator` (
   `ator_id` smallint(5) unsigned NOT NULL,
   `filme_id` smallint(5) unsigned NOT NULL,
@@ -122,6 +183,10 @@ CREATE TABLE IF NOT EXISTS `filme_ator` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `filme_categoria`
+--
 
 CREATE TABLE IF NOT EXISTS `filme_categoria` (
   `filme_id` smallint(5) unsigned NOT NULL,
@@ -133,6 +198,10 @@ CREATE TABLE IF NOT EXISTS `filme_categoria` (
 
 -- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `filme_texto`
+--
+
 CREATE TABLE IF NOT EXISTS `filme_texto` (
   `filme_id` smallint(6) NOT NULL,
   `titulo` varchar(255) NOT NULL,
@@ -142,6 +211,10 @@ CREATE TABLE IF NOT EXISTS `filme_texto` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `funcionario`
+--
 
 CREATE TABLE IF NOT EXISTS `funcionario` (
   `funcionario_id` tinyint(3) unsigned NOT NULL auto_increment,
@@ -162,6 +235,10 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
 
 -- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `idioma`
+--
+
 CREATE TABLE IF NOT EXISTS `idioma` (
   `idioma_id` tinyint(3) unsigned NOT NULL auto_increment,
   `nome` char(20) NOT NULL,
@@ -170,6 +247,10 @@ CREATE TABLE IF NOT EXISTS `idioma` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `inventario`
+--
 
 CREATE TABLE IF NOT EXISTS `inventario` (
   `inventario_id` mediumint(8) unsigned NOT NULL auto_increment,
@@ -181,7 +262,11 @@ CREATE TABLE IF NOT EXISTS `inventario` (
   KEY `idx_loja_id_filme_id` (`loja_id`,`filme_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4582 ;
 
+-- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `loja`
+--
 
 CREATE TABLE IF NOT EXISTS `loja` (
   `loja_id` tinyint(3) unsigned NOT NULL auto_increment,
@@ -194,6 +279,10 @@ CREATE TABLE IF NOT EXISTS `loja` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pagamento`
+--
 
 CREATE TABLE IF NOT EXISTS `pagamento` (
   `pagamento_id` smallint(5) unsigned NOT NULL auto_increment,
@@ -211,12 +300,20 @@ CREATE TABLE IF NOT EXISTS `pagamento` (
 
 -- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `pais`
+--
+
 CREATE TABLE IF NOT EXISTS `pais` (
   `pais_id` smallint(5) unsigned NOT NULL auto_increment,
   `pais` varchar(50) NOT NULL,
   `ultima_atualizacao` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   PRIMARY KEY  (`pais_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=110 ;
+
+--
+-- Restrições para as tabelas dumpadas
+--
 
 --
 -- Restrições para a tabela `aluguel`

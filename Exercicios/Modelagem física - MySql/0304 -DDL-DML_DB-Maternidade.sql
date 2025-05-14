@@ -1,3 +1,4 @@
+-- Grave os dados na  base de dados dbmaternidade seguindo aos dados planilha
 DROP DATABASE IF EXISTS DB_MATERNIDADE;
 CREATE DATABASE DB_MATERNIDADE;
 USE DB_MATERNIDADE;

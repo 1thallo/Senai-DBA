@@ -63,5 +63,5 @@ DELETE from usuario where id = 54;                                             -
 -- ================================================================================
 
 -- -------------------------------  >> SELECT DAS MINHAS OPERAÇÕES NO BANCO DE DADOS << ---------------------------------
-SELECT * FROM AUDITORIA_USUARIO WHERE EXECUTOR = 'ithallo@172.16.1.210';                                             -- |
+SELECT * FROM AUDITORIA_USUARIO WHERE EXECUTOR = 'ithallo@'                                                          -- |
 -- ======================================================================================================================
