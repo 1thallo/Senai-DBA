@@ -1,0 +1,95 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8A1521FB-CDC4-CCA0-14B7-1432028E65A2" name="RSTTB004_PRODUTO_PEDIDO">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:26:39 UTC</createdTime>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_PEDIDO" id="ECFB5E9B-042C-FFC0-5A45-C74CB1F23EE2">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:27:18 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador do pedido.]]></commentInRDBMS>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9E6DE81F-433E-DD43-8E9C-623CC28251D8" referredColumn="AEF90318-2986-AFE5-1BA4-A85847E6EA84"/>
+</associations>
+</Column>
+<Column name="ID_PRODUTO" id="6A3E4DBD-EC8B-D0E6-80EA-39786DB8BC67">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:27:18 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador do produto.]]></commentInRDBMS>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A642842A-52EC-AFEA-425E-B571DBC21A67" referredColumn="C796DF35-E251-542A-80F0-C89A8C6BBBAD"/>
+</associations>
+</Column>
+<Column name="QT_PRODUTO" id="DC8F5DAB-A592-0ABE-CBFA-52CA99CC648C">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:27:32 UTC</createdTime>
+<commentInRDBMS><![CDATA[Quantidade de produto no pedido.]]></commentInRDBMS>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="81BCF1F5-F7E0-1077-7DC6-4EDE503324C8" name="PK_RSTTB004">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:27:18 UTC</createdTime>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ECFB5E9B-042C-FFC0-5A45-C74CB1F23EE2"/>
+<colUsage columnID="6A3E4DBD-EC8B-D0E6-80EA-39786DB8BC67"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="055D69A7-587E-6A0C-C06C-F65805C9D5A5" name="IX01_RSTTB004">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:29:00 UTC</createdTime>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6A3E4DBD-EC8B-D0E6-80EA-39786DB8BC67"/>
+<colUsage columnID="ECFB5E9B-042C-FFC0-5A45-C74CB1F23EE2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8D54F3D0-5ED2-07AF-AEFB-CB71E20B325E" name="FK01_RSTTB002_RSTTB004">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:27:52 UTC</createdTime>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ECFB5E9B-042C-FFC0-5A45-C74CB1F23EE2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DABB4AC1-5BFE-8623-8FDC-0945F7E3BA8F" name="FK02_RSTTB003_RSTTB004">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:27:52 UTC</createdTime>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6A3E4DBD-EC8B-D0E6-80EA-39786DB8BC67"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

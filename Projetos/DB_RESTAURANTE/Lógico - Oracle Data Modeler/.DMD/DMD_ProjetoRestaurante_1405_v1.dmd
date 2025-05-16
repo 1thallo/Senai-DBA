@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="DMD_ProjetoRestaurante_1405_v1" id="D3E64A80-90C6-D2C9-8759-8047B2DAA56B" version="3.5">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 22:54:09 UTC</createdTime>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>D3E64A80-90C6-D2C9-8759-8047B2DAA56B</designId>
+</OSDM_Design>

@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9F1F1C30-BB80-B984-126B-9950DEC2CC78" name="RSTTB002_PEDIDO">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:11:39 UTC</createdTime>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_PEDIDO" id="AEF90318-2986-AFE5-1BA4-A85847E6EA84">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:12:18 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador único serial do pedido.]]></commentInRDBMS>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>SQ01_RSTTB002.nextval</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementSequenceName>SQ01_RSTTB002</autoIncrementSequenceName>
+<autoIncrementGenerateTrigger>false</autoIncrementGenerateTrigger>
+</Column>
+<Column name="ID_COMANDA" id="29DB420F-7D41-B49A-B6F2-3B95DF106DDE">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:16:25 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador único da comanda.]]></commentInRDBMS>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A6E8877D-7893-24DE-BE65-1892F8859872" referredColumn="3E572F52-7941-BA10-49BB-6D0AC59CE4F2"/>
+</associations>
+</Column>
+<Column name="DH_PEDIDO" id="F8381980-EC18-305A-F67A-775542EC2BE1">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:17:42 UTC</createdTime>
+<commentInRDBMS><![CDATA[Data / Hora do pedido.]]></commentInRDBMS>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="37787269-C88D-4A7E-4972-6211B698DE58" name="PK_RSTTB002">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:12:18 UTC</createdTime>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AEF90318-2986-AFE5-1BA4-A85847E6EA84"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1040F8B1-0BF9-D247-B223-623270E09BBD" name="FK01_RSTTB001_RSTTB002">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:16:25 UTC</createdTime>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="29DB420F-7D41-B49A-B6F2-3B95DF106DDE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

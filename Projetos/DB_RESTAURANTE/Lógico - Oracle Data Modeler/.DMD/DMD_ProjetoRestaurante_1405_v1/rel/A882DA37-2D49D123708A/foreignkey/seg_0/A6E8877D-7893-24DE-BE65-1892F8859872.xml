@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="A6E8877D-7893-24DE-BE65-1892F8859872" containerWithKeyObject="9F1F1C30-BB80-B984-126B-9950DEC2CC78" localFKIndex="1040F8B1-0BF9-D247-B223-623270E09BBD" name="FK01_RSTTB001_RSTTB002">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:16:25 UTC</createdTime>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<referredTableLongName>RSTTB001_COMANDA</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>3BABDC2E-5FB5-9545-3E9E-066E34D4AAFC</referredTableID>
+<keyObject>2320B0BB-7BB0-652C-6C0A-881419759887</keyObject>
+<referredKeyID>2320B0BB-7BB0-652C-6C0A-881419759887</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_COMANDA</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

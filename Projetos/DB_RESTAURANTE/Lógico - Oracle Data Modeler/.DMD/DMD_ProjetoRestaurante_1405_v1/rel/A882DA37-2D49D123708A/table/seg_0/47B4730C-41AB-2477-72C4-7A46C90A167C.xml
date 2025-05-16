@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="47B4730C-41AB-2477-72C4-7A46C90A167C" name="RSTTB003_PRODUTO">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:14:23 UTC</createdTime>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_PRODUTO" id="C796DF35-E251-542A-80F0-C89A8C6BBBAD">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:15:02 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador único serial do produto.]]></commentInRDBMS>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>SQ01_RSTTB003.nextval</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementSequenceName>SQ01_RSTTB003</autoIncrementSequenceName>
+<autoIncrementGenerateTrigger>false</autoIncrementGenerateTrigger>
+</Column>
+<Column name="NO_PRODUTO" id="1B88D52B-ADCE-E4E0-F70C-0809486A4A28">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:15:02 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nome do produto.]]></commentInRDBMS>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_PRODUTO" id="1C272474-BB56-1DA7-0DDC-51BD11FB92C0">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:15:49 UTC</createdTime>
+<commentInRDBMS><![CDATA[Descrição do produto.]]></commentInRDBMS>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 CHAR</dataTypeSize>
+<ownDataTypeParameters>500 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VL_PRODUTO" id="55E9271C-92D6-389D-F44D-A22A25057B62">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:15:49 UTC</createdTime>
+<commentInRDBMS><![CDATA[Valor do produto.]]></commentInRDBMS>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,7,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QT_ESTOQUE" id="FE5FC909-13C6-6AAE-E237-AD26C03C96B5">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:16:03 UTC</createdTime>
+<commentInRDBMS><![CDATA[Quantidade em estoque.]]></commentInRDBMS>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4B4257DF-4607-F935-D2E4-E54FBF667AAA" name="PK_RSTTB003">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:15:02 UTC</createdTime>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C796DF35-E251-542A-80F0-C89A8C6BBBAD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D478FAFD-153E-BD68-635E-A033E746C508" name="UK01_RSTTB003">
+<createdBy>ead</createdBy>
+<createdTime>2025-05-14 23:28:42 UTC</createdTime>
+<ownerDesignName>DMD_ProjetoRestaurante_1405_v1</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1B88D52B-ADCE-E4E0-F70C-0809486A4A28"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
