@@ -1,0 +1,102 @@
+DELIMITER $$
+
+CREATE FUNCTION QUADRADO(NUMERO INT)
+RETURNS INT 
+DETERMINISTIC 
+	BEGIN
+		DECLARE RESULTADO INT;
+		SET RESULTADO = NUMERO * NUMERO;
+		RETURN RESULTADO;
+	END $$
+
+DELIMITER ;
+
+SELECT QUADRADO(5);
+-- ================================================================
+DROP FUNCTION IF EXISTS BEM_VINDO;
+
+DELIMITER //
+
+CREATE FUNCTION BEM_VINDO(NOME VARCHAR(200), GENERO CHAR(1))
+RETURNS VARCHAR(250)
+DETERMINISTIC
+BEGIN
+	DECLARE MENSAGEM VARCHAR(250);
+		IF GENERO = 'M' THEN
+			SET MENSAGEM = CONCAT('Bem Vindo ', nome);
+		ELSEIF
+			GENERO = 'F' THEN
+			SET MENSAGEM = CONCAT('Bem Vinda ', nome);
+		ELSE
+			SET MENSAGEM = CONCAT('Bem Vindes ' , nome);
+		END IF;	
+    RETURN MENSAGEM;
+END //
+
+DELIMITER ;
+
+SELECT BEM_VINDO('Ithallo', 'M') AS "Boas Vindas";
+
+-- =================================================================
+
+DROP FUNCTION IF EXISTS ANO_BISSEXTO;
+
+DELIMITER $$
+
+CREATE FUNCTION ANO_BISSEXTO(ANO INT)
+RETURNS VARCHAR(20)
+NOT DETERMINISTIC
+READS SQL DATA
+	BEGIN
+		IF (ANO % 4 = 0 AND ANO % 100 != 0) OR (ANO % 400 = 0) THEN
+			RETURN 'É bissexto';
+		ELSE
+			RETURN 'Não é bissexto';
+		END IF;
+	END $$
+
+DELIMITER ;
+
+SELECT ANO_BISSEXTO(2024) AS "Resultado";
+
+-- =================================================================
+
+DROP FUNCTION IF EXISTS ParImpar;
+
+DELIMITER $$
+
+CREATE FUNCTION ParImpar(NUMERO INT)
+RETURNS VARCHAR(10)
+DETERMINISTIC
+	BEGIN
+		IF NUMERO % 2 = 0 THEN
+			RETURN 'PAR';
+        ELSE
+			RETURN 'IMPAR';
+		END IF;
+	END $$
+
+DELIMITER ;
+
+SELECT ParImpar(7);
+
+-- ==============================================
+
+DROP FUNCTION IF EXISTS ALEATORIO;
+
+DELIMITER $$
+
+CREATE FUNCTION ALEATORIO()
+RETURNS INT
+NOT DETERMINISTIC
+READS SQL DATA
+	BEGIN
+		DECLARE VALOR INT;
+        SET VALOR = FLOOR((RAND()*1000)+1);
+        RETURN VALOR;
+    END $$
+DELIMITER ;
+
+SELECT ALEATORIO() AS "Número Aleatório";
+
+-- ================================================================
