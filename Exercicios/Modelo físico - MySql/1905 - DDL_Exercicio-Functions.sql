@@ -1,0 +1,37 @@
+DROP FUNCTION IF EXISTS COMPARACAO;
+DELIMITER $$
+CREATE FUNCTION COMPARACAO(NUMERO1 INT, NUMERO2 INT)
+RETURNS VARCHAR(5)
+DETERMINISTIC
+	BEGIN
+		IF NUMERO1 > NUMERO2 THEN
+			RETURN CONCAT(NUMERO1, " > ", NUMERO2);
+		ELSEIF NUMERO1 < NUMERO2 THEN
+			RETURN CONCAT(NUMERO2, " > ", NUMERO1);
+		ELSE
+			RETURN CONCAT(NUMERO1, " = ", NUMERO2);
+		END IF;
+	END $$
+DELIMITER ;
+
+SELECT COMPARACAO(9,5), COMPARACAO(5,9), COMPARACAO(9,9);
+
+-- ====================================================
+DROP FUNCTION IF EXISTS DATA_BR;
+
+DELIMITER //
+CREATE FUNCTION DATA_BR(v_data DATE)
+RETURNS VARCHAR(11)
+DETERMINISTIC
+	BEGIN
+		DECLARE data_formatada VARCHAR(11);
+			SET data_formatada = DATE_FORMAT(v_data, '%d/%m/%Y');
+		RETURN data_formatada;
+    END //
+DELIMITER ;
+
+SELECT DATA_BR('2004-10-01') AS "Data de Nascimento", DATA_BR(CURDATE()) AS "Data de Hoje";
+
+-- ================================================================================================
+
+
