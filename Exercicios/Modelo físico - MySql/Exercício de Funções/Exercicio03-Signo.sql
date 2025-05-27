@@ -32,5 +32,59 @@ select signo('2024-12-01');
 select signo('2024-01-01');
 select signo('2024-02-01');
 select signo('2024-03-01');
-/*
+*/
 
+DROP FUNCTION IF EXISTS SIGNO;
+
+DELIMITER //
+
+CREATE FUNCTION SIGNO(v_data DATE)
+RETURNS VARCHAR(50)
+DETERMINISTIC
+BEGIN
+    DECLARE signo_nome VARCHAR(20);
+
+    CASE
+        WHEN (MONTH(v_data) = 3 AND DAY(v_data) >= 21) OR (MONTH(v_data) = 4 AND DAY(v_data) <= 19) THEN
+            SET signo_nome = 'Áries';
+        WHEN (MONTH(v_data) = 4 AND DAY(v_data) >= 20) OR (MONTH(v_data) = 5 AND DAY(v_data) <= 20) THEN
+            SET signo_nome = 'Touro';
+        WHEN (MONTH(v_data) = 5 AND DAY(v_data) >= 21) OR (MONTH(v_data) = 6 AND DAY(v_data) <= 20) THEN
+            SET signo_nome = 'Gêmeos';
+        WHEN (MONTH(v_data) = 6 AND DAY(v_data) >= 21) OR (MONTH(v_data) = 7 AND DAY(v_data) <= 22) THEN
+            SET signo_nome = 'Câncer';
+        WHEN (MONTH(v_data) = 7 AND DAY(v_data) >= 23) OR (MONTH(v_data) = 8 AND DAY(v_data) <= 22) THEN
+            SET signo_nome = 'Leão';
+        WHEN (MONTH(v_data) = 8 AND DAY(v_data) >= 23) OR (MONTH(v_data) = 9 AND DAY(v_data) <= 22) THEN
+            SET signo_nome = 'Virgem';
+        WHEN (MONTH(v_data) = 9 AND DAY(v_data) >= 23) OR (MONTH(v_data) = 10 AND DAY(v_data) <= 22) THEN
+            SET signo_nome = 'Libra';
+        WHEN (MONTH(v_data) = 10 AND DAY(v_data) >= 23) OR (MONTH(v_data) = 11 AND DAY(v_data) <= 21) THEN
+            SET signo_nome = 'Escorpião';
+        WHEN (MONTH(v_data) = 11 AND DAY(v_data) >= 22) OR (MONTH(v_data) = 12 AND DAY(v_data) <= 21) THEN
+            SET signo_nome = 'Sagitário';
+        WHEN (MONTH(v_data) = 12 AND DAY(v_data) >= 22) OR (MONTH(v_data) = 1 AND DAY(v_data) <= 19) THEN
+            SET signo_nome = 'Capricórnio';
+        WHEN (MONTH(v_data) = 1 AND DAY(v_data) >= 20) OR (MONTH(v_data) = 2 AND DAY(v_data) <= 18) THEN
+            SET signo_nome = 'Aquário';
+        ELSE
+            SET signo_nome = 'Peixes';
+    END CASE;
+
+    RETURN CONCAT(signo_nome, ': ', DATE_FORMAT(v_data, '%d/%m/%Y'));
+END //
+
+DELIMITER ;
+
+SELECT signo('2024-04-01') AS "Resultado do Signo";
+SELECT signo('2024-05-01')AS "Resultado do Signo";
+SELECT signo('2024-06-01') AS "Resultado do Signo";
+SELECT signo('2024-07-01') AS "Resultado do Signo";
+SELECT signo('2024-08-01') AS "Resultado do Signo";
+SELECT signo('2024-09-01') AS "Resultado do Signo";
+SELECT signo('2024-10-01') AS "Resultado do Signo";
+SELECT signo('2024-11-01') AS "Resultado do Signo";
+SELECT signo('2024-12-01') AS "Resultado do Signo";
+SELECT signo('2024-01-01') AS "Resultado do Signo";
+SELECT signo('2024-02-01') AS "Resultado do Signo";
+SELECT signo('2024-03-01') AS "Resultado do Signo";

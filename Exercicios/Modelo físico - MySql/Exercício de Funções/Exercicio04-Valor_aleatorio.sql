@@ -17,3 +17,32 @@ select valor_aleatorio(5,15);
 select valor_aleatorio(5,15);
 */
 
+DROP FUNCTION IF EXISTS VALOR_ALEATORIO;
+
+DELIMITER //
+
+CREATE FUNCTION VALOR_ALEATORIO(MIN INT, MAX INT) 
+RETURNS INT
+NOT DETERMINISTIC
+READS SQL DATA 
+	BEGIN
+		DECLARE RESULTADO INT;
+        
+        IF MIN >= MAX THEN
+			SET RESULTADO = NULL;
+		ELSE
+			SET RESULTADO = FLOOR(RAND() * (MAX - MIN + 1)) + MIN;
+		END IF;
+        
+        RETURN RESULTADO;
+	END //
+
+DELIMITER ;
+
+select valor_aleatorio(5,15);
+select valor_aleatorio(5,15);
+select valor_aleatorio(5,15);
+select valor_aleatorio(5,15);
+select valor_aleatorio(5,15);
+select valor_aleatorio(5,15);
+select valor_aleatorio(5,15);
