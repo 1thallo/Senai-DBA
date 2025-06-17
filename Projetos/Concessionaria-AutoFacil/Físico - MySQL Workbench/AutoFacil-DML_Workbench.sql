@@ -1,0 +1,42 @@
+/*
+Parte 4 - Inserção de Dados
+Insira os seguintes dados fictícios no banco:
+
+3 clientes
+2 vendedores
+10 veículos (alguns com status "Disponível", outros "Vendido")
+3 vendas com respectivos itens vendidos
+*/
+
+INSERT INTO ATFTB001_CLIENTE (NR_CPF, NO_CLIENTE)
+	VALUES 
+    (11122233344, "Ithallo"),
+    (99988877766, "Leandro"),
+    (12345678910, "Rodrigues"),
+    (40028922227, "Barbosa");
+
+INSERT INTO ATFTB002_VENDEDOR (NR_MATRICULA, NO_VENDEDOR) VALUES
+	(556677, "João Marcelo"),
+    (987654, "Marcio");
+
+INSERT INTO ATFTB003_VEICULO (NO_MODELO, NO_MARCA, AN_FABRICACAO, VL_VEICULO, IC_STATUS) VALUES
+	('Civic', 'Honda', 2020, 85000.00, 'D'),
+	('Corolla', 'Toyota', 2019, 78000.00, 'V'),
+	('Gol', 'Volkswagen', 2018, 35000.00, 'D'),
+	('Onix', 'Chevrolet', 2021, 62000.00, 'V'),
+	('HB20', 'Hyundai', 2020, 58000.00, 'D'),
+	('Compass', 'Jeep', 2022, 130000.00, 'D'),
+	('Renegade', 'Jeep', 2019, 95000.00, 'D'),
+	('Ka', 'Ford', 2017, 32000.00, 'D'),
+	('Argo', 'Fiat', 2020, 55000.00, 'D'),
+	('Tracker', 'Chevrolet', 2021, 110000.00, 'V');
+
+INSERT INTO ATFTB004_VENDA (DT_VENDA, ID_CLIENTE, ID_VENDEDOR) VALUES
+	(DATE(NOW()), 1, 1),
+    ('2025-04-04', 2, 2),
+    ('2025-05-05', 3, 1);
+
+INSERT INTO ATFTB005_VENDA_VEICULO (ID_VENDA, ID_VEICULO) VALUES
+	(1, 2),
+    (2, 4),
+    (3, 10);

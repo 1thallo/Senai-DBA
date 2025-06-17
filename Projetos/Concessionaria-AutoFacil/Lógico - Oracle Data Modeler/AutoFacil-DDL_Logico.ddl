@@ -1,0 +1,252 @@
+-- Gerado por Oracle SQL Developer Data Modeler 24.3.1.351.0831
+--   em:        2025-06-16 21:27:56 BRT
+--   site:      Oracle Database 21c
+--   tipo:      Oracle Database 21c
+
+
+
+-- predefined type, no DDL - MDSYS.SDO_GEOMETRY
+
+-- predefined type, no DDL - XMLTYPE
+
+CREATE TABLE ATFTB001_CLIENTE 
+    ( 
+     ID_CLIENTE NUMBER (10)  NOT NULL , 
+     NR_CPF     CHAR (11 CHAR)  NOT NULL , 
+     NO_CLIENTE VARCHAR2 (200 CHAR)  NOT NULL 
+    ) 
+;
+
+COMMENT ON TABLE ATFTB001_CLIENTE IS 'Armazena dados sobre os clientes da concessionária.'
+;
+
+COMMENT ON COLUMN ATFTB001_CLIENTE.ID_CLIENTE IS 'Identificador único serial do cliente.' 
+;
+
+COMMENT ON COLUMN ATFTB001_CLIENTE.NR_CPF IS 'Número do Cadastro de Pessoa Física do cliente.' 
+;
+
+COMMENT ON COLUMN ATFTB001_CLIENTE.NO_CLIENTE IS 'Nome do cliente.' 
+;
+
+ALTER TABLE ATFTB001_CLIENTE 
+    ADD CONSTRAINT PK_ATFTB001 PRIMARY KEY ( ID_CLIENTE ) ;
+
+ALTER TABLE ATFTB001_CLIENTE 
+    ADD CONSTRAINT UK01_ATFTB001 UNIQUE ( NO_CLIENTE , NR_CPF ) ;
+
+CREATE TABLE ATFTB002_VENDEDOR 
+    ( 
+     ID_VENDEDOR  NUMBER (10) DEFAULT SQ01_ATFTB002.nextval  NOT NULL , 
+     NR_MATRICULA NUMBER (20)  NOT NULL , 
+     NO_VENDEDOR  VARCHAR2 (200 CHAR)  NOT NULL 
+    ) 
+;
+
+COMMENT ON TABLE ATFTB002_VENDEDOR IS 'Armazena dados sobre os vendedores da concessionária.'
+;
+
+COMMENT ON COLUMN ATFTB002_VENDEDOR.ID_VENDEDOR IS 'Identificador único serial do vendedor.' 
+;
+
+COMMENT ON COLUMN ATFTB002_VENDEDOR.NR_MATRICULA IS 'Número da matrícula do vendedor.' 
+;
+
+COMMENT ON COLUMN ATFTB002_VENDEDOR.NO_VENDEDOR IS 'Nome do vendedor.' 
+;
+
+ALTER TABLE ATFTB002_VENDEDOR 
+    ADD CONSTRAINT PK_ATFTB002 PRIMARY KEY ( ID_VENDEDOR ) ;
+
+ALTER TABLE ATFTB002_VENDEDOR 
+    ADD CONSTRAINT UK01_ATFTB002 UNIQUE ( NR_MATRICULA , NO_VENDEDOR ) ;
+
+CREATE TABLE ATFTB003_VEICULO 
+    ( 
+     ID_VEICULO    NUMBER (20) DEFAULT SQ01_ATFTB003.nextval  NOT NULL , 
+     NO_MODELO     VARCHAR2 (50 CHAR)  NOT NULL , 
+     NO_MARCA      VARCHAR2 (50 CHAR)  NOT NULL , 
+     AN_FABRICACAO NUMBER (4)  NOT NULL , 
+     VL_VEICULO    NUMBER (7,2)  NOT NULL , 
+     IC_STATUS     CHAR (1 CHAR)  NOT NULL 
+    ) 
+;
+
+ALTER TABLE ATFTB003_VEICULO 
+    ADD CONSTRAINT CC01_ATFTB003 
+    CHECK (IC_STATUS IN ('D', 'V')) 
+;
+
+COMMENT ON TABLE ATFTB003_VEICULO IS 'Armazena dados sobre os veículos da concessionária.'
+;
+
+COMMENT ON COLUMN ATFTB003_VEICULO.ID_VEICULO IS 'Identificador único serial do veículo.' 
+;
+
+COMMENT ON COLUMN ATFTB003_VEICULO.NO_MODELO IS 'Nome do modelo do veículo.' 
+;
+
+COMMENT ON COLUMN ATFTB003_VEICULO.NO_MARCA IS 'Nome da marca do veículo.' 
+;
+
+COMMENT ON COLUMN ATFTB003_VEICULO.AN_FABRICACAO IS 'Ano de fabricação do veículo.' 
+;
+
+COMMENT ON COLUMN ATFTB003_VEICULO.VL_VEICULO IS 'Valor do veículo.' 
+;
+
+COMMENT ON COLUMN ATFTB003_VEICULO.IC_STATUS IS 'Indicador da disponibilidade do carro: D - Disponivel / V - Vendido' 
+;
+
+ALTER TABLE ATFTB003_VEICULO 
+    ADD CONSTRAINT PK_ATFTB003 PRIMARY KEY ( ID_VEICULO ) ;
+
+CREATE TABLE ATFTB004_VENDA 
+    ( 
+     ID_VENDA    NUMBER (20) DEFAULT SQ01_ATFTB004.nextval  NOT NULL , 
+     DT_VENDA    DATE  NOT NULL , 
+     ID_CLIENTE  NUMBER (10)  NOT NULL , 
+     ID_VENDEDOR NUMBER (10)  NOT NULL 
+    ) 
+;
+
+COMMENT ON TABLE ATFTB004_VENDA IS 'Armazena dados sobre as vendas realizadas na concessionária.'
+;
+
+COMMENT ON COLUMN ATFTB004_VENDA.ID_VENDA IS 'Identificador único serial da venda.' 
+;
+
+COMMENT ON COLUMN ATFTB004_VENDA.DT_VENDA IS 'Data em que a venda foi realizada.' 
+;
+
+COMMENT ON COLUMN ATFTB004_VENDA.ID_CLIENTE IS 'Identificador do cliente que realizou a venda.' 
+;
+
+COMMENT ON COLUMN ATFTB004_VENDA.ID_VENDEDOR IS 'Identificador do vendedor que realizou a venda.' 
+;
+
+ALTER TABLE ATFTB004_VENDA 
+    ADD CONSTRAINT PK_ATFTB004 PRIMARY KEY ( ID_VENDA ) ;
+
+CREATE TABLE ATFTB005_VENDA_VEICULO 
+    ( 
+     ID_VENDA   NUMBER (20)  NOT NULL , 
+     ID_VEICULO NUMBER (20)  NOT NULL 
+    ) 
+;
+
+COMMENT ON TABLE ATFTB005_VENDA_VEICULO IS 'Tabela associativa entre veículos e vendas.'
+;
+
+COMMENT ON COLUMN ATFTB005_VENDA_VEICULO.ID_VENDA IS 'Identificador da venda.' 
+;
+
+COMMENT ON COLUMN ATFTB005_VENDA_VEICULO.ID_VEICULO IS 'Identificador do veículo' 
+;
+
+ALTER TABLE ATFTB005_VENDA_VEICULO 
+    ADD CONSTRAINT PK_ATFTB005 PRIMARY KEY ( ID_VENDA, ID_VEICULO ) ;
+
+ALTER TABLE ATFTB004_VENDA 
+    ADD CONSTRAINT FK01_ATFTB001_ATFTB004 FOREIGN KEY 
+    ( 
+     ID_CLIENTE
+    ) 
+    REFERENCES ATFTB001_CLIENTE 
+    ( 
+     ID_CLIENTE
+    ) 
+;
+
+ALTER TABLE ATFTB005_VENDA_VEICULO 
+    ADD CONSTRAINT FK01_ATFTB003_ATFTB005 FOREIGN KEY 
+    ( 
+     ID_VEICULO
+    ) 
+    REFERENCES ATFTB003_VEICULO 
+    ( 
+     ID_VEICULO
+    ) 
+;
+
+ALTER TABLE ATFTB004_VENDA 
+    ADD CONSTRAINT FK02_ATFTB002_ATFTB004 FOREIGN KEY 
+    ( 
+     ID_VENDEDOR
+    ) 
+    REFERENCES ATFTB002_VENDEDOR 
+    ( 
+     ID_VENDEDOR
+    ) 
+;
+
+ALTER TABLE ATFTB005_VENDA_VEICULO 
+    ADD CONSTRAINT FK02_ATFTB004_ATFTB005 FOREIGN KEY 
+    ( 
+     ID_VENDA
+    ) 
+    REFERENCES ATFTB004_VENDA 
+    ( 
+     ID_VENDA
+    ) 
+;
+
+CREATE SEQUENCE SQ01_ATFTB002 
+START WITH 1 
+    NOCACHE 
+    ORDER ;
+
+CREATE SEQUENCE SQ01_ATFTB003 
+START WITH 1 
+    NOCACHE 
+    ORDER ;
+
+CREATE SEQUENCE SQ01_ATFTB004 
+START WITH 1 
+    NOCACHE 
+    ORDER ;
+
+
+
+-- Relatório do Resumo do Oracle SQL Developer Data Modeler: 
+-- 
+-- CREATE TABLE                             5
+-- CREATE INDEX                             0
+-- ALTER TABLE                             12
+-- CREATE VIEW                              0
+-- ALTER VIEW                               0
+-- CREATE PACKAGE                           0
+-- CREATE PACKAGE BODY                      0
+-- CREATE PROCEDURE                         0
+-- CREATE FUNCTION                          0
+-- CREATE TRIGGER                           0
+-- ALTER TRIGGER                            0
+-- CREATE COLLECTION TYPE                   0
+-- CREATE STRUCTURED TYPE                   0
+-- CREATE STRUCTURED TYPE BODY              0
+-- CREATE CLUSTER                           0
+-- CREATE CONTEXT                           0
+-- CREATE DATABASE                          0
+-- CREATE DIMENSION                         0
+-- CREATE DIRECTORY                         0
+-- CREATE DISK GROUP                        0
+-- CREATE ROLE                              0
+-- CREATE ROLLBACK SEGMENT                  0
+-- CREATE SEQUENCE                          3
+-- CREATE MATERIALIZED VIEW                 0
+-- CREATE MATERIALIZED VIEW LOG             0
+-- CREATE SYNONYM                           0
+-- CREATE TABLESPACE                        0
+-- CREATE USER                              0
+-- 
+-- DROP TABLESPACE                          0
+-- DROP DATABASE                            0
+-- 
+-- REDACTION POLICY                         0
+-- 
+-- ORDS DROP SCHEMA                         0
+-- ORDS ENABLE SCHEMA                       0
+-- ORDS ENABLE OBJECT                       0
+-- 
+-- ERRORS                                   0
+-- WARNINGS                                 0

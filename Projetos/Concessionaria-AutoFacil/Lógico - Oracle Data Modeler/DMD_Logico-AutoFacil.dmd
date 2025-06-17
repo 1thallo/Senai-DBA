@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="DMD_Logico-AutoFacil" id="99117150-1B3F-C792-A1E9-B60EDB881F88" version="3.5">
+<createdBy>ead</createdBy>
+<createdTime>2025-06-17 00:00:21 UTC</createdTime>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>99117150-1B3F-C792-A1E9-B60EDB881F88</designId>
+</OSDM_Design>
