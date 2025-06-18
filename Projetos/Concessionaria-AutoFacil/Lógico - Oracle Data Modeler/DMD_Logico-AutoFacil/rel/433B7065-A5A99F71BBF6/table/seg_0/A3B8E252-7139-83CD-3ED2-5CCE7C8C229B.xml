@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A3B8E252-7139-83CD-3ED2-5CCE7C8C229B" name="ATFTB003_VEICULO">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Armazena dados sobre os veículos da concessionária.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>712EA1C6-EC3F-26BE-3D67-DB104D1A1222</importedID>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_VEICULO" id="D0514550-939E-629B-3890-6DCAA6C605B1">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador único serial do veículo.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>04297615-CE8E-DD06-A411-586AFE3370AD</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<defaultValue>SQ01_ATFTB003.nextval</defaultValue>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementSequenceName>SQ01_ATFTB003</autoIncrementSequenceName>
+<autoIncrementGenerateTrigger>false</autoIncrementGenerateTrigger>
+</Column>
+<Column name="NO_MODELO" id="86005DC7-8C82-C721-A552-B217CE980CA7">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nome do modelo do veículo.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>984E290A-E074-DCC4-AE1C-B634E78C0131</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NO_MARCA" id="53ED94AD-9CDE-FB5D-7962-BA6FD98673A5">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nome da marca do veículo.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>8C92891A-0714-E416-BC2E-32D93A874188</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AN_FABRICACAO" id="F66E6CB5-6522-9E8D-85C1-1B53EB118C1A">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Ano de fabricação do veículo.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>3035E7D9-C244-5CEF-2455-3015F31E7AB4</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VL_VEICULO" id="6BC716B7-0921-9429-E93B-BD6F5055F335">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Valor do veículo.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>92BFDEB2-3671-8C63-65B3-4AD3871BAA38</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,7,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IC_STATUS" id="2E8031DF-952F-FFE0-2F55-7331A5AB3226">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Indicador da disponibilidade do carro: D - Disponivel / V - Vendido]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>4EF726ED-3118-0E59-2538-640B2EBA1E97</importedID>
+<constraintName>CC01_ATFTB003</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<listOfValues>
+<valueDef value="D" description="Disponível"/>
+<valueDef value="V" description="Vendido"/>
+</listOfValues>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="721C4FB4-00AC-8BD7-E9B7-3D3E0ECDCF93" name="PK_ATFTB003">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>FE20A669-372E-51C6-86C8-33532D2EFE92</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D0514550-939E-629B-3890-6DCAA6C605B1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

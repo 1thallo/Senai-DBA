@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="main_view" objectID="6C9D1C1A-482E-43DE-091F-39ACC5D18667" name="AutoFacil-DDL_Logico" visible="true"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

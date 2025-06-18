@@ -5,4 +5,12 @@
 <ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
 <capitalNames>false</capitalNames>
 <designId>99117150-1B3F-C792-A1E9-B60EDB881F88</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="426659BF-C827-6F5C-21C2-F444D9576A2C">
+<designStoragePath>D:\AutoFacil-DDL_Logico</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="99117150-1B3F-C792-A1E9-B60EDB881F88">
+<designStoragePath>D:\.Programacao\Github\Senai_DBA\Projetos\Concessionaria-AutoFacil\Lógico - Oracle Data Modeler\DataModelerDesign\DMD_Logico-AutoFacil</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
 </OSDM_Design>

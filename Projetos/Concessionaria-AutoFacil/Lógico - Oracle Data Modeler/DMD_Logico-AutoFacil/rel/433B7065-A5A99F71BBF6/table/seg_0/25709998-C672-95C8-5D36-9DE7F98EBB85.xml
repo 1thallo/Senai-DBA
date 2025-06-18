@@ -1,0 +1,83 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="25709998-C672-95C8-5D36-9DE7F98EBB85" name="ATFTB002_VENDEDOR">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Armazena dados sobre os vendedores da concessionária.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>6B843F90-19E7-1A4E-CD5F-701284EC512E</importedID>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_VENDEDOR" id="EC976FF6-DB06-996C-6983-F0DB8E468FE0">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador único serial do vendedor.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>5BFE6C8C-70C8-6F55-3A21-5D3C3B80BCE4</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<defaultValue>SQ01_ATFTB002.nextval</defaultValue>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementSequenceName>SQ01_ATFTB002</autoIncrementSequenceName>
+<autoIncrementGenerateTrigger>false</autoIncrementGenerateTrigger>
+</Column>
+<Column name="NR_MATRICULA" id="DE445F7A-C3E1-98F5-07C6-6A86A42744FE">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Número da matrícula do vendedor.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>A16E4463-7629-E420-395C-AD94E6D02691</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NO_VENDEDOR" id="6487502B-8DCF-63A7-6025-4676AC857235">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nome do vendedor.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>EE6087B8-FBFD-2042-495F-797FCC3F5117</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9C507C50-183A-9881-3C3F-457367993B32" name="PK_ATFTB002">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>1A7BDF46-0020-62A4-5F6C-3CD64F259372</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EC976FF6-DB06-996C-6983-F0DB8E468FE0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1BF17581-F0FD-349C-91CA-B5AF3528B689" name="UK01_ATFTB002">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>3AC6BA13-F3F7-6F21-5CA2-A2BE0CC5508B</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DE445F7A-C3E1-98F5-07C6-6A86A42744FE"/>
+<colUsage columnID="6487502B-8DCF-63A7-6025-4676AC857235"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

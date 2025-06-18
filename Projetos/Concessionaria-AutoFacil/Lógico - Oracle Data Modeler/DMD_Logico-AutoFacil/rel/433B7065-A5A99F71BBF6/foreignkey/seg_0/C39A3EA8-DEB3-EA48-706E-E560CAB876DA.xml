@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C39A3EA8-DEB3-EA48-706E-E560CAB876DA" containerWithKeyObject="EF5A269A-FC19-BFC9-8D45-B446BAAB2E03" localFKIndex="5994766D-42F0-0C0F-2688-FFD82E537DBB" name="FK01_ATFTB001_ATFTB004">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>969249B4-990D-174E-FD3A-585B4F100A96</importedID>
+<referredTableLongName>ATFTB001_CLIENTE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>09EA5A3C-5383-FAEA-B0DB-5B373332DBEC</referredTableID>
+<keyObject>2D60A769-A5B5-2EAB-74AC-2C4C19EC86D1</keyObject>
+<referredKeyID>2D60A769-A5B5-2EAB-74AC-2C4C19EC86D1</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_CLIENTE</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="09EA5A3C-5383-FAEA-B0DB-5B373332DBEC" name="ATFTB001_CLIENTE">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Armazena dados sobre os clientes da concessionária.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>0A42619E-424B-86FB-84C5-DFCA822A5840</importedID>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_CLIENTE" id="19CD42A6-0703-D44B-560B-7AC337EFE729">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador único serial do cliente.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>0CF64CAB-269E-0E87-4F85-A153DD321E09</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NR_CPF" id="D3B9DDEA-6680-63A3-4478-BF1C342EADC4">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Número do Cadastro de Pessoa Física do cliente.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>FC91AA18-3EA0-48D4-3E84-FB5F890BC262</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>11 CHAR</dataTypeSize>
+<ownDataTypeParameters>11 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NO_CLIENTE" id="4D80E7B2-C8D6-DB69-27C0-12202D03221B">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nome do cliente.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>B9C700D3-F186-1AAD-E20B-5858A649217B</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2D60A769-A5B5-2EAB-74AC-2C4C19EC86D1" name="PK_ATFTB001">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>1BE8B345-4913-2308-E592-51635FBF3779</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="19CD42A6-0703-D44B-560B-7AC337EFE729"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6DE39C7A-0FAE-28D4-A945-24A23FA4CF18" name="UK01_ATFTB001">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:22 UTC</createdTime>
+<comment><![CDATA[Chave única para evitar duplicidade de dados.]]></comment>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>0B1FD095-3C8C-24A2-FAB6-722FF0BC17E3</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4D80E7B2-C8D6-DB69-27C0-12202D03221B"/>
+<colUsage columnID="D3B9DDEA-6680-63A3-4478-BF1C342EADC4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

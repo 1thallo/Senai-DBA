@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="77B557EB-5776-397B-AF09-94F1C7C5424E" name="ATFTB004_VENDA">
+<sourceDDLFile>AutoFacil-DDL_Logico.ddl</sourceDDLFile>
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:24:09 UTC</createdTime>
+<commentInRDBMS><![CDATA[Armazena dados sobre as vendas realizadas na concessionária.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>B5913458-8B94-2A37-E0EF-3158ABA719D1</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_VENDA" id="6B3C47D1-342F-73CB-C57C-00E2A9D0D949">
+<sourceDDLFile>AutoFacil-DDL_Logico.ddl</sourceDDLFile>
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:24:09 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador único serial da venda.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>4BADCB9F-B5CD-741B-AB78-4896716A1783</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<defaultValue>SQ01_ATFTB004.nextval</defaultValue>
+<ownDataTypeParameters>,20,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementSequenceName>SQ01_ATFTB004</autoIncrementSequenceName>
+</Column>
+<Column name="DT_VENDA" id="ACBE99E2-FDA8-D720-AD98-27E81F71DF8D">
+<sourceDDLFile>AutoFacil-DDL_Logico.ddl</sourceDDLFile>
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:24:09 UTC</createdTime>
+<commentInRDBMS><![CDATA[Data em que a venda foi realizada.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>08A426F0-1A87-B786-1977-EE3B05551A72</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_CLIENTE" id="656618C5-F281-596A-32DD-C808902F2A2C">
+<sourceDDLFile>AutoFacil-DDL_Logico.ddl</sourceDDLFile>
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:24:09 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador do cliente que realizou a venda.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>412E634E-4FB8-B31F-2324-AE40B993C091</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AAF70160-5673-AC63-E33F-0D2A3F387613" referredColumn="A38E5561-F5F0-72B7-010D-96BD2C783537"/>
+</associations>
+</Column>
+<Column name="ID_VENDEDOR" id="9711D47F-CFA1-7947-6D80-3F677C864778">
+<sourceDDLFile>AutoFacil-DDL_Logico.ddl</sourceDDLFile>
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:24:09 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador do vendedor que realizou a venda.]]></commentInRDBMS>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>91A59620-C115-B286-2F3E-BD552EFA1D58</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5E7487C7-17F2-F583-B2B6-B957E9806070</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A44B3381-1250-7C03-9E6C-B5369E2A3785" referredColumn="899CBC7F-8453-FE6D-BCE9-CD630DDEC8EA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="21DB9B53-6AF2-2459-F847-09A2A2604EAA" name="PK_ATFTB004">
+<sourceDDLFile>AutoFacil-DDL_Logico.ddl</sourceDDLFile>
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:24:09 UTC</createdTime>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<importedID>ABC22A71-6593-B2E0-1392-F073E8DFAF5F</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6B3C47D1-342F-73CB-C57C-00E2A9D0D949"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2F688E81-39AF-3924-3E6E-16D569E30DA4" name="FK01_ATFTB001_ATFTB004">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:24:09 UTC</createdTime>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="656618C5-F281-596A-32DD-C808902F2A2C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EE51BF02-30FB-7D4C-9D1C-4071465E9038" name="FK02_ATFTB002_ATFTB004">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:24:09 UTC</createdTime>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9711D47F-CFA1-7947-6D80-3F677C864778"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

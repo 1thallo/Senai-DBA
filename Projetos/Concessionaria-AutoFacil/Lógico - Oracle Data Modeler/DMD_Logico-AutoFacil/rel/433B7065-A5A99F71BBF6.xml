@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Relational_1" id="433B7065-B562-A6B7-8444-A5A99F71BBF6" mainViewID="F3B3B7DC-B43A-C08B-30E2-5B04728FECC2">
+<createdBy>ithallo</createdBy>
+<createdTime>2025-06-18 22:37:21 UTC</createdTime>
+<ownerDesignName>DMD_Logico-AutoFacil</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>01F6E6D1-21D0-CFBD-ABDD-3988D1813575</selectedRDBMSSite>
+</relationalModel>
