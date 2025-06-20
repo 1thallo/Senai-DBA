@@ -1,109 +1,123 @@
-Atividade de Banco de Dados - Concessionária
-Objetivo
-Modelar e implementar um banco de dados relacional para controlar os veículos, clientes, vendas e vendedores de uma concessionária.
+# Projeto de Banco de Dados - Concessionária AutoFácil
 
-Parte 1 - Entendimento do Cenário
-A concessionária "AutoFácil" vende veículos novos e usados. Cada venda envolve um cliente, um vendedor e um ou mais veículos. É necessário manter o registro dos clientes, veículos disponíveis, vendedores e as vendas realizadas.
-
-Parte 2 - Modelagem (Entidades e Relacionamentos)
-Tabelas:
-Cliente: (ID, Nome, CPF, Telefone)
-Vendedor: (ID, Nome, Matrícula, Telefone)
-Veículo: (ID, Modelo, Marca, Ano, Preço, Status)
-Status: "Disponível", "Vendido"
-Venda: (ID, ID_Cliente, ID_Vendedor, Data)
-ItemVenda: (ID_Venda, ID_Veiculo)
-Desafio:
-Crie um diagrama entidade-relacionamento (ER) representando essas tabelas e os relacionamentos entre elas.
-
-Parte 3 - Criação das Tabelas (SQL)
-Escreva os comandos SQL para criar as tabelas conforme a modelagem acima.
-
-Parte 4 - Inserção de Dados
-Insira os seguintes dados fictícios no banco:
-
-3 clientes
-2 vendedores
-10 veículos (alguns com status "Disponível", outros "Vendido")
-3 vendas com respectivos itens vendidos
-Parte 5 - Consultas SQL
-Crie comandos SQL para responder:
-
-Liste todos os veículos disponíveis para venda.
-Liste todas as vendas realizadas com nome do cliente, nome do vendedor e data.
-Mostre os veículos vendidos em cada venda.
-Liste o total de vendas (valor) por vendedor.
-Mostre o total gasto por cada cliente.
-Liste os veículos que ainda não foram vendidos.
-Parte 6 - Entrega
-Entregar arquivo projeto-concessionario.sql, com todos os comandos necessário para replicar toda a base e registros.
-Parte 7 - Reflexão
-O que aconteceria se não usássemos a tabela ItemVenda?
-Por que é importante manter o campo "Status" do veículo atualizado após uma venda?
+Este projeto foi desenvolvido como parte do curso de **Administrador de Banco de Dados** do SENAI, com o objetivo de modelar, normalizar e implementar um banco de dados relacional para uma concessionária fictícia chamada **AutoFácil**.
 
 ---
 
-- **Físico - MySQL Workbench/**: Contém o script SQL para criação do banco de dados no MySQL, incluindo tabelas, chaves primárias, estrangeiras e restrições.
-- **Lógico - Oracle Data Modeler/**: Contém o script DDL gerado pelo Oracle Data Modeler, representando o modelo lógico do banco de dados.
-- **README.md**: Este arquivo de documentação.
+## Objetivo
+
+O sistema visa informatizar e organizar a gestão de clientes, vendedores, veículos e vendas, promovendo a correta normalização dos dados e facilitando consultas, relatórios e integrações futuras.
 
 ---
 
-## Modelagem do Banco de Dados
+## Ferramentas Utilizadas
 
-O projeto foi modelado em três níveis:
+- **brModelo**: Utilizado para a modelagem conceitual (DER - Diagrama Entidade Relacionamento).
+- **Oracle Data Modeler**: Utilizado para a modelagem lógica e geração de scripts DDL compatíveis com Oracle.
+- **MySQL Workbench**: Utilizado para a modelagem física, execução dos scripts e testes no SGBD MySQL.
 
-- **Modelo Conceitual**: Representação DER (Diagrama Entidade-Relacionamento) das entidades e seus relacionamentos.
-- **Modelo Lógico**: Estrutura das tabelas, tipos de dados, chaves e restrições, conforme visto no Oracle Data Modeler.
-- **Modelo Físico**: Scripts SQL prontos para execução no SGBD (MySQL ou Oracle).
+---
 
-### Entidades Principais
+## Estrutura do Projeto
 
-- **Cliente**: Armazena dados dos clientes (ID, Nome, CPF).
-- **Vendedor**: Armazena dados dos vendedores (ID, Matrícula, Nome).
-- **Veículo**: Armazena dados dos veículos (ID, Modelo, Marca, Ano, Preço, Status).
-- **Venda**: Registra cada venda realizada, associando cliente e vendedor, com data.
-- **Venda_Veículo**: Tabela associativa para registrar quais veículos foram vendidos em cada venda (permitindo vendas de múltiplos veículos).
+```plaintext
+Projetos/
+└── Concessionaria-AutoFacil/
+    ├── Lógico - Oracle Data Modeler/
+    │   ├── AutoFacil-DDL_Logico.ddl
+    │   ├── AutoFacil-IMG.pdf
+    |   └── DMD_Logico-AutoFacil.dmd
+    ├── Físico - MySQL Workbench/
+    │   ├── AutoFacil-DDL_Workbench.sql
+    │   ├── AutoFacil-DML_Workbench.sql
+    │   ├── AutoFacil-Triggers.sql
+    |   ├── AutoFacil-DQL_Parte05.sql
+    |   └── AutoFacil-ScriptCompleto.sql
+    └── README.md
+```
 
-### Relacionamentos
+**Lógico - Oracle Data Modeler/**: Contém o script DDL gerado a partir do modelo lógico, com nomenclatura padronizada (ATFTBxxx) e comentários detalhados.
 
-- Um cliente pode realizar várias vendas.
-- Um vendedor pode participar de várias vendas.
-- Uma venda pode envolver um ou mais veículos.
-- Cada veículo pode ser vendido em apenas uma venda (após vendido, seu status muda para "Vendido").
+- **Físico - MySQL Workbench/**: Scripts para criação das tabelas, inserção de dados de exemplo e triggers para manter a integridade dos dados no MySQL.
+- **README.md**: Documentação do projeto.
+
+---
+
+## Modelagem e Normalização
+
+### Modelagem Conceitual
+
+O DER foi elaborado no **brModelo**, identificando as principais entidades e seus relacionamentos:
+
+- **Cliente** (ID, Nome, CPF, Telefones)
+- **Vendedor** (ID, Matrícula, Nome, Telefones)
+- **Veículo** (ID, Modelo, Marca, Ano, Preço, Status)
+- **Venda** (ID, Cliente, Vendedor, Data)
+- **ItemVenda** (Venda, Veículo)
+
+### Normalização
+
+Para garantir a correta normalização (3FN), os telefones de clientes e vendedores foram separados em tabelas específicas:
+
+- **ATFTB101_TELEFONE_CLIENTE**: Permite múltiplos telefones por cliente, com indicação do tipo (Pessoal, Comercial, Trabalho).
+- **ATFTB102_TELEFONE_VENDEDOR**: Permite múltiplos telefones por vendedor, com indicação do tipo (Pessoal, Trabalho).
+
+Essa abordagem elimina redundâncias e facilita a manutenção dos dados.
+
+---
+
+## Nomenclatura
+
+- **ATFTBxxx**: Prefixo padrão para todas as tabelas, facilitando a identificação e organização.
+- **PK_ / FK_ / CC_ / UK_**: Prefixos para constraints (Primary Key, Foreign Key, Check, Unique).
+- **Campos em MAIÚSCULO**: Seguindo padrão corporativo e facilitando leitura.
+- **Comentários**: Todas as tabelas e colunas possuem comentários explicativos.
 
 ---
 
 ## Scripts Disponíveis
 
-- [`Físico - MySQL Workbench/AutoFacil-DDL_Workbench.sql`](Físico%20-%20MySQL%20Workbench/AutoFacil-DDL_Workbench.sql):  
-  Script para criação do banco de dados no MySQL, incluindo todas as tabelas, chaves e restrições.
-
-- [`Lógico - Oracle Data Modeler/AutoFacil-DDL_Logico.ddl`](Lógico%20-%20Oracle%20Data%20Modeler/AutoFacil-DDL_Logico.ddl):  
-  Script DDL gerado pelo Oracle Data Modeler, compatível com Oracle Database.
-
----
-
-## Como Utilizar
-
-1. **Escolha o SGBD**:  
-   - Para MySQL, utilize o script da pasta `Físico - MySQL Workbench`.
-   - Para Oracle, utilize o script da pasta `Lógico - Oracle Data Modeler`.
-
-2. **Crie o Banco de Dados**:  
-   - Execute o script correspondente no seu SGBD para criar todas as tabelas e restrições.
-
-3. **Popular o Banco (Opcional)**:  
-   - Insira dados de exemplo para testar consultas e operações.
-
-4. **Consultas e Relatórios**:  
-   - Realize consultas SQL para extrair informações como vendas por cliente, veículos disponíveis, histórico de vendas, etc.
+- **AutoFacil-DDL_Logico.ddl**: Script DDL gerado pelo Oracle Data Modeler, compatível com Oracle Database.
+- **AutoFacil-DDL_Workbench.sql**: Script de criação do banco de dados e tabelas no MySQL, incluindo constraints e comentários.
+- **AutoFacil-DML_Workbench.sql**: Script de inserção de dados fictícios para testes (clientes, vendedores, veículos, vendas e telefones).
+- **AutoFacil-Triggers.sql**: Triggers para atualização automática do status dos veículos conforme venda ou remoção de venda.
 
 ---
 
-## Exemplos de Consultas
+## Exemplo de Dados Inseridos
+
+- **Clientes**: 4 clientes fictícios, cada um podendo ter múltiplos telefones.
+- **Vendedores**: 2 vendedores fictícios, cada um podendo ter múltiplos telefones.
+- **Veículos**: 10 veículos, com status "Disponível" ou "Vendido".
+- **Vendas**: 3 vendas, cada uma podendo envolver um ou mais veículos.
+- **Telefones**: Telefones associados corretamente a clientes e vendedores, conforme a normalização.
+
+---
+
+## Consultas Exemplares
+
+- Listar todos os telefones de um cliente:
+
+  ```sql
+  SELECT c.NO_CLIENTE, t.NR_TELEFONE, t.IC_TIPO_TELEFONE
+    FROM ATFTB001_CLIENTE c
+    JOIN ATFTB101_TELEFONE_CLIENTE t ON c.ID_CLIENTE = t.ID_CLIENTE
+   WHERE c.NO_CLIENTE = 'Ithallo';
+  ```
 
 - Listar todos os veículos disponíveis:
+
   ```sql
   SELECT * FROM ATFTB003_VEICULO WHERE IC_STATUS = 'D';
   ```
+
+- Listar vendas de um vendedor específico:
+
+  ```sql
+  SELECT v.ID_VENDA, v.DT_VENDA, c.NO_CLIENTE
+    FROM ATFTB004_VENDA v
+    JOIN ATFTB001_CLIENTE c ON v.ID_CLIENTE = c.ID_CLIENTE
+   WHERE v.ID_VENDEDOR = 1;
+  ```
+
+Projeto desenvolvido para fins didáticos no curso de Administrador de Banco de Dados - SENAI.
