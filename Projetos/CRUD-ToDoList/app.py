@@ -1,5 +1,9 @@
 from flask import Flask, request, render_template
 import psycopg2, json
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Carrega as variáveis do .env
 
 app = Flask(__name__)
 
@@ -42,34 +46,30 @@ def get_login(login,senha):
 def banco(sql):
     resultado = ""
     try:
-        # Conexão com o banco de dados PostgreSQL
         conn = psycopg2.connect(
-            host = "dpg-d1ct6mje5dus73d8abeg-a.oregon-postgres.render.com",
-            port = "5432",
-            dbname = "dbapp_g55c",
-            user = "dbapp_g55c_user",
-            password = "oE7gSUHVKepzRrvIRzVTpBNtwbScHqLT"
+            host = os.getenv("DB_HOST"),
+            port = os.getenv("DB_PORT"),
+            dbname = os.getenv("DB_NAME"),
+            user = os.getenv("DB_USER"),
+            password = os.getenv("DB_PASSWORD")
         )
-        cursor = conn.cursor() # cursor vai ser a variável para executar os comandos SQL.
-        cursor.execute(sql) # executa o comando sql seja insert, select .. etc
-
+        cursor = conn.cursor()
+        cursor.execute(sql)
         if sql[0:6] == "INSERT":
             resultado = cursor.fetchone()[0]
         elif sql[0:6] == "SELECT":
-            resultado = cursor.fetchall() # vai guardar o resultado do select na var resultado
+            resultado = cursor.fetchall()
             colunas = [desc[0] for desc in cursor.description]
             resultado = json.dumps([dict(zip(colunas, row)) for row in resultado])
             resultado = json.loads(resultado)
-
-        cursor.close() # finaliza o cursor
-        conn.commit() # confirma o comando SQL 
-        conn.close() # finaliza a conexão
+        cursor.close()
+        conn.commit()
+        conn.close()
     except psycopg2.Error as e:
-        print("Erro na conexão do baaaaaaanco de dados")
+        print("Erro na conexão do banco de dados:", e)
     return resultado
 
 
 if __name__ == '__main__':
     app.run(debug=True)
 
-    
